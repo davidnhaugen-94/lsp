@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <title>data-handling-guides</title>
+</head>
+<body class="markdown-page">
+<h1>Data Handling &amp; Metric Specifications</h1>
+<p>Because the Luna Space Portal API converts complex scientific data streams into human-readable responses, developers must adhere to specific formatting rules to avoid compilation errors.</p>
+<h2>Temporal Standards (Dates &amp; Times)</h2>
+<p>All date queries passed as inputs to this API must conform strictly to the international ISO date layout template:</p>
+<ul>
+<li><strong>Format Rule:</strong> <code>YYYY-MM-DD</code> (e.g., Year-Month-Day).</li>
+<li><strong>Correct Syntax:</strong> <code>2026-08-28</code></li>
+<li><strong>Incorrect Syntax:</strong> <code>08/28/2026</code> or <code>August 28, 2026</code> (Passing non-ISO structures will instantly result in a server parsing fault).</li>
+</ul>
+<hr>
+<h2>Planetary Telemetry Units</h2>
+<p>To prevent layout inconsistencies across client apps, sizing metrics are structured into specific scientific measurements.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Data Property</th>
+<th align="left">Primary Unit</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>estimated_diameter</code></td>
+<td align="left">Meters (<code>m</code>)</td>
+<td align="left">Used to evaluate the physical size of near-Earth asteroids.</td>
+</tr>
+<tr>
+<td align="left"><code>relative_velocity</code></td>
+<td align="left">Kilometers per Hour (<code>km/h</code>)</td>
+<td align="left">Represents the velocity of tracking objects relative to Earth.</td>
+</tr>
+<tr>
+<td align="left"><code>miss_distance</code></td>
+<td align="left">Kilometers (<code>km</code>)</td>
+<td align="left">Indicates proximity distance.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Understanding Hazard Classification Flags</h2>
+<p>The system handles a boolean attribute labeled <code>is_potentially_hazardous_asteroid</code>. A space rock is flagged as <code>true</code> if it meets two exact criteria evaluated by automated radar stations:</p>
+<ol>
+<li><strong>Proximity Approach:</strong> Its minimum orbit intersection distance from Earth is less than <strong>0.05 astronomical units</strong> (roughly 7.5 million kilometers).</li>
+<li><strong>Physical Sizing:</strong> The object possesses an absolute brightness index suggesting its diameter exceeds roughly <strong>150 meters</strong> in width.</li>
+</ol>
+
+</body>
+</html>

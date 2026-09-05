@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles.css">
+  <title>getting-started-tutorial</title>
+</head>
+<body class="markdown-page">
+<h1>Tutorial: Building a &quot;Cosmic Alert&quot; Dashboard</h1>
+<p>This step-by-step tutorial walks you through chaining our three core API endpoints together to build a functional, real-time widget for amateur astronomers.</p>
+<h2>Prerequisites</h2>
+<p>Before beginning this tutorial, ensure you have:</p>
+<ul>
+<li>A validated development platform API key.</li>
+<li>An active workspace tool (like Postman) or a basic frontend application environment to capture data streams.</li>
+</ul>
+<hr>
+<h2>Step 1: Initialize the Daily Image/Video</h2>
+<p>Start by fetching the Astronomy Picture of the Day (<code>/planetary/apod</code>) to establish the background media layout of your application dashboard.</p>
+<ul>
+<li><strong>Action:</strong> Trigger a standard <code>GET</code> request appending your token.</li>
+<li><strong>Implementation Note:</strong> Your code should read the returned <code>media_type</code> string. If it returns <code>&quot;image&quot;</code>, render the asset inside a standard source image tag. If it returns <code>&quot;video&quot;</code>, route the payload destination link directly to an embedded iframe media player.</li>
+</ul>
+<hr>
+<h2>Step 2: Query for Near-Earth Asteroids</h2>
+<p>Next, secure real-time radar data for local objects passing close to Earth&#39;s orbital plane within a targeted calendar window.</p>
+<ul>
+<li><strong>Action:</strong> Query the <code>/neo/rest/v1/feed</code> endpoint.</li>
+<li><strong>Filtering Logic:</strong> Your client software must loop through the returned date array to retrieve each near-Earth asteroid. For each tracked object, configure a UI warning flag that changes to red if the <code>is_potentially_hazardous_asteroid</code> property equals <code>true</code>.</li>
+</ul>
+<hr>
+<h2>Step 3: Query for Solar Weather Data</h2>
+<p>Lastly, provide the latest solar flare, coronal mass ejection, and magnetic storm information that can to warn users about potential satellite or communication line disruptions.</p>
+<ul>
+<li><strong>Action:</strong> Issue a request to the <code>/DONKI/CME</code>, <code>/DONKI/FLR</code>, and <code>/DONKI/GST</code> solar weather monitoring engine.</li>
+<li><strong>Dashboard Layout:</strong> For the current day <code>start_date</code>, notify users whether any solar weather may affect earth inside a prominent banner at the top of your visual layout.</li>
+</ul>
+
+</body>
+</html>
