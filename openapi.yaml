@@ -1,14 +1,104 @@
 openapi: 3.0.0
 info:
   title: Luna Space Portal
-  description: Welcome to the Luna Space Portal developer reference. This unified API platform aggregates real-time NASA data streams to track near-Earth asteroids, monitor live solar weather notifications, and fetch the daily featured astronomy media assets.
-  version: 1.0.0
+  description: Welcome to the Luna Space Portal developer reference. This unified API platform aggregates real-time NASA data streams to retrieve the daily featured astronomy media assets, provide the local Northern Lights forecast, and track near-Earth asteroids.
+  version: 1.1.0
 servers:
   - url: https://api.nasa.gov
 paths:
+  /planetary/apod:
+    get:
+      summary: Retrieves the Astronomy Picture of the Day (APOD)
+      parameters: 
+        - name: api_key
+          in: query
+          description: API key for authentication.
+          required: true
+          schema: 
+            type: string
+            example: "DEMO_KEY"
+        - name: date
+          in: query 
+          description: The date of the APOD.
+          required: false
+          schema:
+            type: string 
+            format: date
+            example: "2026-08-26"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object 
+                properties: 
+                  copyright:
+                    type: string 
+                    description: Copyright holder or owner of the media.
+                    example: "APOD TEAM"
+                  date:
+                    type: string 
+                    description: Date of the APOD media.
+                    example: "2026-08-26"
+                  explanation:
+                    type: string 
+                    description: An detailed explanation of the media.
+                    example: "This is a photo of the aurora."
+                  hdurl:
+                    type: string 
+                    description: URL for the HD version of media.
+                    example: "https://apod.nasa.gov/apod/image/2608/Aurora_over_Fall.jpg"
+                  title:
+                    type: string 
+                    description: Title of the APOD. 
+                    example: "Aurora"
+        '503':
+          description: Service unavailable.
+  /DONKI/GST:
+    get:
+      summary: Retrieves geomagnetic storm data for the specified date.
+      parameters:
+        - name: api_key
+          in: query 
+          description: API key for authentication.
+          required: true
+          schema: 
+            type: string
+            example: "DEMO_KEY"
+        - name: start_date
+          in: query 
+          description: Date to retrieve geomagnetic storm data from.
+          required: true
+          schema:
+            type: string 
+            format: date
+            example: "2026-08-26"
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+                schema:
+                  type: object 
+                  properties: 
+                    gstID:
+                      type: string 
+                      description: Storm ID.
+                      example: 2026-08-08T18:00:00-GST-001
+                    startTime: 
+                      type: string 
+                      description: Start time.
+                      example: 2026-08-08T18:00Z
+                    allKpIndex:
+                      type: string
+                      description: Intensity of geomagnetic activity.
+                      example: 5.67
+        '503':
+          description: Service unavailable.
   /neo/rest/v1/feed:
     get:
-      summary: Retrieves near-Earth asteroid information for the next three days.
+      summary: Retrieves near-Earth asteroid data for the specified date range.
       parameters: 
         - name: api_key
           in: query 
@@ -27,7 +117,7 @@ paths:
             example: "2026-08-26"
         - name: end_date
           in: query
-          description: End date of data information. Users can retrieve up to three days of data.
+          description: End date of data. Users can retrieve up to three days of data.
           required: false
           schema:
             type: string  
@@ -56,7 +146,7 @@ paths:
                             example: "221455 (2006 BC10)"
                           nasa_jpl_url:
                             type: string
-                            description: Detail information about near-Earth asteroid.
+                            description: Detailed information about near-Earth asteroid.
                             example: "https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html#/?sstr=2221455"
                           absolute_magnitude_h:
                             type: number
@@ -80,101 +170,7 @@ paths:
                             example: 3584832.90733736
                           is_sentry_object:
                             type: boolean
-                            description: Could impact Earth in near future.
-                            example: false
-  /planetary/apod:
-    get:
-      summary: Retrieves the Astronomy Picture of the Day from NASA.
-      parameters: 
-        - name: api_key
-          in: query 
-          description: API key for authentication.
-          required: true
-          schema: 
-            type: string
-            example: "DEMO_KEY"
-        - name: date
-          in: query 
-          description: The date of the APOD.
-          required: false
-          schema:
-            type: string 
-            format: date
-            example: "2026-08-26"
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                type: object 
-                properties: 
-                  copyright:
-                    type: string 
-                    description: The name of the copyright holder or owner of the image.
-                    example: "APOD TEAM"
-                  date:
-                    type: string 
-                    description: Date of the APOD image.
-                    example: "2026-08-26"
-                  explanation:
-                    type: string 
-                    description: An explanation of the image.
-                    example: "This is a photo of the aurora."
-                  hdurl:
-                    type: string 
-                    description: URL for the HD version of image.
-                    example: "https://apod.nasa.gov/apod/image/2608/Aurora_over_Fall.jpg"
-                  title:
-                    type: string 
-                    description: Title of the APOD. 
-                    example: "Aurora"
-  /DONKI/FLR:
-    get:
-      summary: Retrieves latest solar flare data.
-      parameters:
-        - name: api_key
-          in: query 
-          description: API key for authentication.
-          required: true
-          schema: 
-            type: string
-            example: "DEMO_KEY"
-        - name: start_date
-          in: query 
-          description: Today's date.
-          required: false
-          schema:
-            type: string 
-            format: date
-            example: "2026-08-26"
-        - name: end_date
-          in: query 
-          description: End date of retrieved data. Users can retrieve up to three days of data.
-          required: false
-          schema:
-            type: string 
-            format: date
-            example: "2026-08-27"
-      responses:
-        '200':
-          description: Successful response.
-          content:
-            application/json:
-                schema:
-                  type: object 
-                  properties: 
-                    flare_today:
-                      type: boolean
-                      description: Whether there was a Solar flare today.
-                      example: true
-                    flrID:
-                      type: string 
-                      description: Solar flare ID.
-                      example: 2026-08-30T01:10:00-FLR-001
-                    classType:
-                      type: string
-                      description: Severity of flare.
-                      example: C3.0
+                            description: Is NASA's Sentry impact monitoring system currently tracking.
+                            example: true
         '503':
           description: Service unavailable.
