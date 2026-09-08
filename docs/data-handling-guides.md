@@ -10,6 +10,27 @@ All date queries passed as inputs to this API must conform strictly to the inter
 
 ---
 
+## Understnading Kp Index Measurements
+Geomagnetic storms cause the aurora borealis (northern lights) to be visibile in the northern hemisphere. The Kp index indicates the intensity of a geomagnetic storm. The higher the intensity, the further south the northern lights may be seen. Below is a table that estimates where in North America the northern lights will be visible depending on the Kp index.
+
+| Kp| Estimated Viewing Area | Example Locations |
+| :--- | :--- | :--- |
+| `0–2.9` | Far northern Canada & Alaska | Yellowknife, Fairbanks |
+| `3.0-3.9` | Northern Canada; far northern U.S. | Northern Minnesota, Maine, Alaska |
+| `4.0-4.9` | Canada and northernmost U.S. | Northern Minnesota, Michigan, Maine |
+| `5.0-5.9` | Northern U.S. | Northern Michigan, Maine |
+| `6.0-6.9` | Northern/mid-northern U.S. | New York, Idaho |
+| `7.0-7.9` | Mid-northern U.S. | Illinois, Oregon |
+| `8.0-8.9` | Much of the northern/mid U.S. | Northern California, Alabama |
+| `9.0-9.9` | Potentially very far south | Florida, Southern Texas |
+
+---
+
+## Required Weather Data
+For the current date, need to retrieve the weather conditions for 9:00 PM, 12:00 AM, and 3:00 AM, since the forecast may vary on any given night.
+
+---
+
 ## Planetary Telemetry Units
 To prevent layout inconsistencies across client apps, sizing metrics are structured into specific scientific measurements.
 

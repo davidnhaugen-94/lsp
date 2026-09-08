@@ -1,14 +1,19 @@
 openapi: 3.0.0
 info:
   title: Luna Space Portal
-  description: Welcome to the Luna Space Portal developer reference. This unified API platform aggregates real-time NASA data streams to retrieve the daily featured astronomy media assets, provide the local Northern Lights forecast, and track near-Earth asteroids.
+  description: Welcome to the Luna Space Portal developer reference. This unified API platform aggregates real-time NASA data streams to retrieve the daily featured astronomy media assets, provides the local Northern Lights forecast, and tracks near-Earth asteroids.
   version: 1.1.0
 servers:
   - url: https://api.nasa.gov
+    description: NASA open APIs
+  - url: https://api.openweathermap.org/data/2.5
+    description: OpenWeatherMap Forecast API
 paths:
   /planetary/apod:
     get:
       summary: Retrieves the Astronomy Picture of the Day (APOD)
+      servers:
+        - url: ttps://api.nasa.gov
       parameters: 
         - name: api_key
           in: query
@@ -19,7 +24,7 @@ paths:
             example: "DEMO_KEY"
         - name: date
           in: query 
-          description: The date of the APOD.
+          description: The date of the APOD  (YYYY-MM-DD).
           required: false
           schema:
             type: string 
@@ -33,6 +38,10 @@ paths:
               schema:
                 type: object 
                 properties: 
+                  media_type:
+                    type: string
+                    description: Type of retrieved data.
+                    example: "image"
                   copyright:
                     type: string 
                     description: Copyright holder or owner of the media.
@@ -47,7 +56,7 @@ paths:
                     example: "This is a photo of the aurora."
                   hdurl:
                     type: string 
-                    description: URL for the HD version of media.
+                    description: URL for the high definition version of the media.
                     example: "https://apod.nasa.gov/apod/image/2608/Aurora_over_Fall.jpg"
                   title:
                     type: string 
@@ -58,22 +67,32 @@ paths:
   /DONKI/GST:
     get:
       summary: Retrieves geomagnetic storm data for the specified date.
+      servers:
+        - url: https://api.nasa.gov
       parameters:
-        - name: api_key
-          in: query 
-          description: API key for authentication.
-          required: true
-          schema: 
-            type: string
-            example: "DEMO_KEY"
-        - name: start_date
-          in: query 
-          description: Date to retrieve geomagnetic storm data from.
+        - name: startDate
+          in: query
+          description: Start date for interval search (YYYY-MM-DD).
           required: true
           schema:
-            type: string 
+            type: string
             format: date
-            example: "2026-08-26"
+          example: "2024-05-08"
+        - name: endDate
+          in: query
+          description: End date for interval search (YYYY-MM-DD).
+          required: true
+          schema:
+            type: string
+            format: date
+          example: "2024-05-09"
+        - name: api_key
+          in: query
+          required: true
+          schema:
+            type: string
+          example: "DEMO_KEY"
+          description: Your NASA API key.
       responses:
         '200':
           description: Successful response.
@@ -85,20 +104,75 @@ paths:
                     gstID:
                       type: string 
                       description: Storm ID.
-                      example: 2026-08-08T18:00:00-GST-001
+                      example: 2024-05-10T15:00:00-GST-001
                     startTime: 
                       type: string 
                       description: Start time.
-                      example: 2026-08-08T18:00Z
+                      example: 2024-05-10T15:00Z
                     allKpIndex:
                       type: string
                       description: Intensity of geomagnetic activity.
-                      example: 5.67
+                      example: 7.67
         '503':
           description: Service unavailable.
+  /forecast:
+    get:
+      summary: Retrieves the weather forecast.
+      servers:
+        - url: https://api.openweathermap.org/data/2.5
+      parameters:
+        - name: appid
+          in: query 
+          description: API key for authentication.
+          required: true
+          schema: 
+            type: string
+            example: "7d8c808dff6cd3b57b0f88bb891f5d6c"
+        - name: zip
+          in: query 
+          description: Zip code for the weather forecast.
+          required: true
+          schema:
+            type: string 
+            example: "58106"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dt_txt:
+                          type: string
+                          example: "2026-08-26 12:00:00"
+                        weather:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              main:
+                                type: string
+                                example: Clouds
+                              description:
+                                type: string
+                                example: overcast clouds
+                            required:
+                              - main
+                              - description
+                      required:
+                        - dt_txt
+                        - weather
   /neo/rest/v1/feed:
     get:
       summary: Retrieves near-Earth asteroid data for the specified date range.
+      servers:
+        - url: ttps://api.nasa.gov
       parameters: 
         - name: api_key
           in: query 
@@ -109,7 +183,7 @@ paths:
             example: "DEMO_KEY"
         - name: start_date
           in: query 
-          description: Today's date.
+          description: Today's date  (YYYY-MM-DD).
           required: false
           schema:
             type: string 
@@ -117,7 +191,7 @@ paths:
             example: "2026-08-26"
         - name: end_date
           in: query
-          description: End date of data. Users can retrieve up to three days of data.
+          description: End date of data. Users can retrieve up to three days of data (YYYY-MM-DD).
           required: false
           schema:
             type: string  
