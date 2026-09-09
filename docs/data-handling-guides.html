@@ -16,7 +16,7 @@
 <li><strong>Incorrect Syntax:</strong> <code>08/28/2026</code> or <code>August 28, 2026</code> (Passing non-ISO structures will instantly result in a server parsing fault).</li>
 </ul>
 <hr>
-<h2>Understnading Kp Index Measurements</h2>
+<h2>Understanding Kp Index Measurements</h2>
 <p>Geomagnetic storms cause the aurora borealis (northern lights) to be visibile in the northern hemisphere. The Kp index indicates the intensity of a geomagnetic storm. The higher the intensity, the further south the northern lights may be seen. Below is a table that estimates where in North America the northern lights will be visible depending on the Kp index.</p>
 <table>
 <thead>
@@ -99,11 +99,15 @@
 </tbody></table>
 <hr>
 <h2>Understanding Hazard Classification Flags</h2>
-<p>The system handles a boolean attribute labeled <code>is_potentially_hazardous_asteroid</code>. A space rock is flagged as <code>true</code> if it meets two exact criteria evaluated by automated radar stations:</p>
+<p>The system handles the following two boolean attributes: <code>is_potentially_hazardous_asteroid</code> and <code>is_sentry_object</code>.
+    
+    For <code>is_potentially_hazardous_asteroid</code>, an asteroid is flagged as <code>true</code> if it meets two exact criteria evaluated by automated radar stations:</p>
 <ol>
 <li><strong>Proximity Approach:</strong> Its minimum orbit intersection distance from Earth is less than <strong>0.05 astronomical units</strong> (roughly 7.5 million kilometers).</li>
 <li><strong>Physical Sizing:</strong> The object possesses an absolute brightness index suggesting its diameter exceeds roughly <strong>150 meters</strong> in width.</li>
 </ol>
+
+For <code>is_sentry_object</code>, an asteroid is flagged as <code>true</code> if the object is currently in NASA's CNEOS Sentry System database, which means there is a chance (non-zero probability) it collides with Earth within the next 100+ years.
 
 </body>
 </html>

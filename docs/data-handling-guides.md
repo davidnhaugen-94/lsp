@@ -10,7 +10,7 @@ All date queries passed as inputs to this API must conform strictly to the inter
 
 ---
 
-## Understnading Kp Index Measurements
+## Understanding Kp Index Measurements
 Geomagnetic storms cause the aurora borealis (northern lights) to be visibile in the northern hemisphere. The Kp index indicates the intensity of a geomagnetic storm. The higher the intensity, the further south the northern lights may be seen. Below is a table that estimates where in North America the northern lights will be visible depending on the Kp index.
 
 | Kp| Estimated Viewing Area | Example Locations |
@@ -43,6 +43,9 @@ To prevent layout inconsistencies across client apps, sizing metrics are structu
 ---
 
 ## Understanding Hazard Classification Flags
-The system handles a boolean attribute labeled `is_potentially_hazardous_asteroid`. A space rock is flagged as `true` if it meets two exact criteria evaluated by automated radar stations:
+The system handles the following two boolean attributes: `is_potentially_hazardous_asteroid` and `is_sentry_object`. 
+
+For `is_potentially_hazardous_asteroid`, an asteroid is flagged as `true` if it meets two exact criteria evaluated by automated radar stations:
 1.  **Proximity Approach:** Its minimum orbit intersection distance from Earth is less than **0.05 astronomical units** (roughly 7.5 million kilometers).
 2.  **Physical Sizing:** The object possesses an absolute brightness index suggesting its diameter exceeds roughly **150 meters** in width.
+

@@ -22,7 +22,7 @@ Start by fetching the Astronomy Picture of the Day (`https://api.nasa.gov/planet
 
 Next, provide the forecast for viewing the northern lights in a specified location.
 
-*   **Input** The user's location. 
+*   **Input:** The user's location. 
 *   **Action:** Issue a request to the `https://api.nasa.gov/DONKI/GST` geomagnetic storm monitoring engine and the `https://api.openweathermap.org/data/2.5` weather API to get the local weather forecast. Retrieve the `dt_txt` and `weather` data for 9:00 PM, 12:00 AM, and 3:00 AM.
 *   **Dashboard Layout:** Inform users whether the northern lights will be visible tonight (at 9:00 PM, 12:00 AM, and 3:00 AM) in the specified location. Indicate whether it is because of the lack of geomagnetic activity or because of the user's location (cloud cover or geomagnetic activity is not intense enough).
 
