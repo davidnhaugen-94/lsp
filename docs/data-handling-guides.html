@@ -11,9 +11,9 @@
 <h2>Temporal Standards (Dates &amp; Times)</h2>
 <p>All date queries passed as inputs to this API must conform strictly to the international ISO date layout template:</p>
 <ul>
-<li><strong>Format Rule:</strong> <code>YYYY-MM-DD</code> (e.g., Year-Month-Day).</li>
-<li><strong>Correct Syntax:</strong> <code>2026-08-28</code></li>
-<li><strong>Incorrect Syntax:</strong> <code>08/28/2026</code> or <code>August 28, 2026</code> (Passing non-ISO structures will instantly result in a server parsing fault).</li>
+<li><strong>Format Rule</strong>: <code>YYYY-MM-DD</code> (e.g., Year-Month-Day).</li>
+<li><strong>Correct Syntax</strong>: <code>2026-08-28</code></li>
+<li><strong>Incorrect Syntax</strong>: <code>08/28/2026</code> or <code>August 28, 2026</code> (Passing non-ISO structures will instantly result in a server parsing fault).</li>
 </ul>
 <hr>
 <h2>Understanding Kp Index Measurements</h2>
@@ -103,8 +103,8 @@
     
     For <code>is_potentially_hazardous_asteroid</code>, an asteroid is flagged as <code>true</code> if it meets two exact criteria evaluated by automated radar stations:</p>
 <ol>
-<li><strong>Proximity Approach:</strong> Its minimum orbit intersection distance from Earth is less than <strong>0.05 astronomical units</strong> (roughly 7.5 million kilometers).</li>
-<li><strong>Physical Sizing:</strong> The object possesses an absolute brightness index suggesting its diameter exceeds roughly <strong>150 meters</strong> in width.</li>
+<li><strong>Proximity Approach</strong>: Its minimum orbit intersection distance from Earth is less than <strong>0.05 astronomical units</strong> (roughly 7.5 million kilometers).</li>
+<li><strong>Physical Sizing</strong>: The object possesses an absolute brightness index suggesting its diameter exceeds roughly <strong>150 meters</strong> in width.</li>
 </ol>
 
 For <code>is_sentry_object</code>, an asteroid is flagged as <code>true</code> if the object is currently in NASA's CNEOS Sentry System database, which means there is a chance (non-zero probability) it collides with Earth within the next 100+ years.

@@ -11,7 +11,7 @@ body {
 body {
   background: #ffffff;
   color: #333333;
-  font-family: Roboto, 'Segoe UI', Verdana, sans-serif; 
+  font-family: Roboto, sans-serif; 
   font-size: 14px;
   line-height: 1.5;
   padding-left: 220px;
@@ -61,16 +61,17 @@ h2,
 h3,
 h4 {
   color: #333333;
+  font-family: Montserrat, sans-serif;
   font-weight: 600;
   line-height: 1.5;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 28px;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 24px;
   margin-top: 32px;
 }
 

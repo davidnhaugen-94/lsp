@@ -12,9 +12,9 @@
 <h2>Core API Infrastructure</h2>
 <p>The platform is broken down into three core modules:</p>
 <ol>
-<li><strong>Media Services (APOD):</strong> Delivers a daily image, video, or animation of the universe with a descriptive analysis from professional astronomers.</li>
-<li><strong>Northern Lights Forecast (DONKI Systems):</strong> Provides the daily forecast for viewing the northern lights in a specified location. <strong>Note:</strong> This module maps geomagnetic storm data against local weather conditions, requiring developers to integrate a secondary external weather dataset (such as the OpenWeather API).</li>
-<li><strong>Near-Earth Object Tracker:</strong> Computes real-time proximity and sizing telemetry for near-Earth asteroids.</li>
+<li><strong>Media Services (APOD)</strong>: Delivers a daily image, video, or animation of the universe with a descriptive analysis from professional astronomers.</li>
+<li><strong>Northern Lights Forecast (DONKI Systems)</strong>: Provides the daily forecast for viewing the northern lights in a specified location. <strong>Note:</strong> This module maps geomagnetic storm data against local weather conditions, requiring developers to integrate a secondary external weather dataset (such as the OpenWeather API).</li>
+<li><strong>Near-Earth Object Tracker</strong>: Computes real-time proximity and sizing telemetry for near-Earth asteroids.</li>
 </ol>
 <hr>
 <h2>Authentication &amp; Authorization</h2>
@@ -24,9 +24,9 @@
 </code></pre>
 <h3>Key Management Guidelines</h3>
 <ul>
-<li><strong>Obtaining Credentials:</strong> Register your development profile on the core application dashboard to retrieve a unique alphanumeric access token.</li>
-<li><strong>Security Best Practices:</strong> Never commit your raw API key directly to public code repositories or client-facing scripts. Always inject the token at runtime using an encrypted environment variable.</li>
-<li><strong>Rate Limits:</strong> Standard evaluation keys are restricted to a fair-use threshold of <strong>40 requests per hour</strong> or <strong>1,000 requests per day</strong> per individual IP address. Exceeding this limit will trigger temporary server throttling.</li>
+<li><strong>Obtaining Credentials</strong>: Register your development profile on the core application dashboard to retrieve a unique alphanumeric access token.</li>
+<li><strong>Security Best Practices</strong>: Never commit your raw API key directly to public code repositories or client-facing scripts. Always inject the token at runtime using an encrypted environment variable.</li>
+<li><strong>Rate Limits</strong>: Standard evaluation keys are restricted to a fair-use threshold of <strong>40 requests per hour</strong> or <strong>1,000 requests per day</strong> per individual IP address. Exceeding this limit will trigger temporary server throttling.</li>
 </ul>
 
 </body>
