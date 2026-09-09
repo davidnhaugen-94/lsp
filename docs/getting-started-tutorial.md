@@ -4,7 +4,8 @@ This step-by-step tutorial walks you through chaining our three core API endpoin
 
 ## Prerequisites
 Before beginning this tutorial, ensure you have:
-*   A validated development platform API key for both of the required servers.
+*   An active, validated **NASA API key** (obtained from api.nasa.gov).
+*   An active **OpenWeather API key** (obtained from openweathermap.org).
 *   An active workspace tool (like Postman) or a basic frontend application environment to capture data streams.
 
 ---

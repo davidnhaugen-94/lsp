@@ -7,8 +7,8 @@ By integrating this API, third-party software engineers can instantly pull high-
 ## Core API Infrastructure
 The platform is broken down into three core modules:
 1.  **Media Services (APOD):** Delivers a daily image, video, or animation of the universe with a descriptive analysis from professional astronomers.
-2.  **Northern Lights Forecast (DONKI Systems):** Provides the daily forcast for viewing the Northern Lights in a specified location based on the latest geomagnetic storm data.
-3. **Near-Earth Object Tracker:** Computes real-time proximity and sizing telemetry for near-Earth asteroids.
+2.  **Northern Lights Forecast (DONKI Systems):** Provides the daily forecast for viewing the northern lights in a specified location. **Note:** This module maps geomagnetic storm data against local weather conditions, requiring developers to integrate a secondary external weather dataset (such as the OpenWeather API).
+3.  **Near-Earth Object Tracker:** Computes real-time proximity and sizing telemetry for near-Earth asteroids.
 
 ---
 
@@ -18,7 +18,7 @@ To protect federal database infrastructure, all client software making calls to 
 
 ### Authentication Pattern
 ```http
-GET https://nasa.gov
+GET https://api.nasa.gov
 ```
 
 ### Key Management Guidelines

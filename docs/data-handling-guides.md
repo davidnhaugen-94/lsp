@@ -11,7 +11,7 @@ All date queries passed as inputs to this API must conform strictly to the inter
 ---
 
 ## Understanding Kp Index Measurements
-Geomagnetic storms cause the aurora borealis (northern lights) to be visibile in the northern hemisphere. The Kp index indicates the intensity of a geomagnetic storm. The higher the intensity, the further south the northern lights may be seen. Below is a table that estimates where in North America the northern lights will be visible depending on the Kp index.
+Geomagnetic storms cause the aurora borealis (northern lights) to be visible in the northern hemisphere. The Kp index indicates the intensity of a geomagnetic storm. The higher the intensity, the further south the northern lights may be seen. Below is a table that estimates where in North America the northern lights will be visible depending on the Kp index.
 
 | Kp| Estimated Viewing Area | Example Locations |
 | :--- | :--- | :--- |
@@ -27,18 +27,18 @@ Geomagnetic storms cause the aurora borealis (northern lights) to be visibile in
 ---
 
 ## Required Weather Data
-For the current date, need to retrieve the weather conditions for 9:00 PM, 12:00 AM, and 3:00 AM, since the forecast may vary on any given night.
+For the current date, the system needs to retrieve the weather conditions for 9:00 PM, 12:00 AM, and 3:00 AM, since the forecast may vary on any given night.
 
 ---
 
 ## Planetary Telemetry Units
-To prevent layout inconsistencies across client apps, sizing metrics are structured into specific scientific measurements.
+To prevent layout inconsistencies across client apps,  sizing and distance metrics are structured into the specific scientific measurements commonly used by NASA.
 
 | Data Property | Primary Unit | Description |
 | :--- | :--- | :--- |
 | `estimated_diameter` | Meters (`m`) | Used to evaluate the physical size of near-Earth asteroids. |
-| `relative_velocity` | Kilometers per Hour (`km/h`) | Represents the velocity of tracking objects relative to Earth. |
-| `miss_distance` | Kilometers (`km`) | Indicates proximity distance.|
+| `relative_velocity` | Kilometers per Second (`km/s`) | Represents the velocity of tracking objects relative to Earth. |
+| `miss_distance` | Kilometers (`km`) | Indicates miss distance.|
 
 ---
 
