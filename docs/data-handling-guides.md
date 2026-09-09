@@ -37,7 +37,7 @@ To prevent layout inconsistencies across client apps,  sizing and distance metri
 | Data Property | Primary Unit | Description |
 | :--- | :--- | :--- |
 | `estimated_diameter` | Meters (`m`) | Used to evaluate the physical size of near-Earth asteroids. |
-| `relative_velocity` | Kilometers per Second (`km/s`) | Represents the velocity of tracking objects relative to Earth. |
+| `relative_velocity` | Kilometers per second (`km/s`) | Represents the velocity of tracking objects relative to Earth. |
 | `miss_distance` | Kilometers (`km`) | Indicates miss distance.|
 
 ---
