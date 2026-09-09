@@ -11,8 +11,8 @@ body {
 body {
   background: #ffffff;
   color: #333333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 10px;
+  font-family: Roboto, 'Segoe UI', Verdana, sans-serif; 
+  font-size: 14px;
   line-height: 1.5;
   padding-left: 220px;
   padding-top: 0px;
