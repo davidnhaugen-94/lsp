@@ -14,9 +14,8 @@ The platform is broken down into three core modules:
 
 ## Authentication & Authorization
 
-To protect federal database infrastructure, all client software making calls to the Luna Space Portal must authenticate by passing an API key parameter inside the URL query string.
+To protect federal database infrastructure, all client software making calls to the Luna Space Portal must authenticate by passing an API key parameter inside the URL query string using the following authentication pattern:
 
-### Authentication Pattern
 ```http
 GET https://api.nasa.gov
 ```
