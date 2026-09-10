@@ -15,14 +15,14 @@
 <li>An active, validated <strong>OpenWeather API key</strong> (obtained from openweathermap.org).</li>
 <li>An active workspace tool (like Postman) or a basic frontend application environment to capture data streams.</li>
 </ul>
-<hr>
+
 <h2>Step 1: Initialize the Daily Image/Video</h2>
 <p>Start by fetching the Astronomy Picture of the Day (<code>https://api.nasa.gov/planetary/apod</code>) to establish the background media layout of your application dashboard.</p>
 <ul>
 <li><strong>Action</strong>: Trigger a standard <code>GET</code> request appending your token.</li>
 <li><strong>Implementation Note</strong>: Your code should read the returned <code>media_type</code> string. If it returns <code>&quot;image&quot;</code>, render the asset inside a standard source image tag. If it returns <code>&quot;video&quot;</code>, route the payload destination link directly to an embedded iframe media player.</li>
 </ul>
-<hr>
+
 <h2>Step 2: Determine Northern Lights Forecast</h2>
 <p>Next, provide the forecast for viewing the northern lights in a specified location.</p>
 <ul>
@@ -30,7 +30,7 @@
 <li><strong>Action</strong>: Issue a request to the <code>https://api.nasa.gov/DONKI/GST</code> geomagnetic storm monitoring engine and the <code>https://api.openweathermap.org/data/2.5</code> weather API to get the local weather forecast. Retrieve the <code>dt_txt</code> and <code>weather</code> data for 9:00 PM, 12:00 AM, and 3:00 AM.</li>
 <li><strong>Dashboard Layout</strong>: Inform users whether the northern lights will be visible tonight (at 9:00 PM, 12:00 AM, and 3:00 AM) in the specified location. Indicate whether it is because of the lack of geomagnetic activity or because of the user&#39;s location (cloud cover or geomagnetic activity is not intense enough).</li>
 </ul>
-<hr>
+
 <h2>Step 3: Query for Near-Earth Asteroids</h2>
 <p>Lastly, secure real-time radar data for local objects passing close to Earth&#39;s orbital plane within a targeted calendar window.</p>
 <ul>

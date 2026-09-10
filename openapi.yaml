@@ -13,7 +13,7 @@ paths:
     get:
       summary: Retrieves the Astronomy Picture of the Day (APOD)
       servers:
-        - url: ttps://api.nasa.gov
+        - url: https://api.nasa.gov
       parameters: 
         - name: api_key
           in: query
@@ -172,7 +172,7 @@ paths:
     get:
       summary: Retrieves near-Earth asteroid data for the specified date range.
       servers:
-        - url: ttps://api.nasa.gov
+        - url: https://api.nasa.gov
       parameters: 
         - name: api_key
           in: query 
