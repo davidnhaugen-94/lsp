@@ -1,6 +1,6 @@
 # Tutorial: Building a "Cosmic Alert" Dashboard
 
-This step-by-step tutorial walks you through chaining our three core API endpoints together, along with the weather forecast API, to build a functional, real-time widget for amateur astronomers.
+This section outlines our three core API endpoints and how they link together, along with the weather forecast API, to build a real-time widget for amateur astronomers.
 
 ## Prerequisites
 Before beginning this tutorial, ensure you have:
