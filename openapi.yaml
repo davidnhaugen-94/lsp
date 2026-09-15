@@ -127,7 +127,7 @@ paths:
           required: true
           schema: 
             type: string
-            example: "7d8c808dff6cd3b57b0f88bb891f5d6c"
+            example: "DEMO_KEY"
         - name: zip
           in: query 
           description: Zip code for the weather forecast.
